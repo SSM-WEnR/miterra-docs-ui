@@ -1,0 +1,51 @@
+{
+  "name": "miterra-docs-ui",
+  "description": "Produces the UI bundle for Miterra Documentation",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SSM-WEnR/miterra-docs-ui"
+  },
+  "scripts": {
+    "start": "gulp preview",
+    "build": "SOURCEMAPS=true npx gulp bundle"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "@asciidoctor/core": "~3.0",
+    "@asciidoctor/tabs": "~1.0.0-beta.6",
+    "@octokit/rest": "~21.1",
+    "@vscode/gulp-vinyl-zip": "~2.6",
+    "autoprefixer": "~10.4",
+    "browser-pack-flat": "~3.5",
+    "browserify": "~17.0",
+    "core-js": "~3.42",
+    "cssnano": "~7.0",
+    "fancy-log": "~2.0",
+    "gulp": "~5.0",
+    "gulp-concat": "~2.6",
+    "gulp-connect": "~5.7",
+    "gulp-eslint": "~6.0",
+    "gulp-imagemin": "~7.1",
+    "gulp-postcss": "~10.0",
+    "gulp-stylelint": "~13.0",
+    "gulp-uglify": "~3.0",
+    "handlebars": "~4.7",
+    "js-yaml": "~4.1",
+    "merge-stream": "~2.0",
+    "postcss": "~8.5",
+    "postcss-calc": "~10.1",
+    "postcss-custom-properties": "~12.1",
+    "postcss-import": "~16.1",
+    "postcss-url": "~10.1",
+    "prettier-eslint": "~16.0",
+    "require-directory": "~2.1",
+    "require-from-string": "~2.0",
+    "vinyl-fs": "~3"
+  }
+}

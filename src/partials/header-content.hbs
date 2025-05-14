@@ -1,0 +1,65 @@
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item logo" title="{{site.title}}" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}"><img src="{{{uiRootPath}}}/img/logo.svg" alt="Miterra" width="48"></a>
+            <a class="navbar-item title" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">{{site.title}}</a>
+            <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                {{#if env.SITE_SEARCH_PROVIDER}}
+                    <div class="navbar-item search hide-for-print">
+                        <form>
+                            <div id="search-field" class="has-filter">
+                                <input id="search-input" class="inputbox" type="text" placeholder="Search the docs"{{#if page.home}} autofocus{{/if}}>
+                                <span class="clear-button"></span>
+                                <label class="filter checkbox">
+                                    <input type="checkbox" data-facet-filter="component:{{page.component.name}}"> In this project
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                {{/if}}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <div class="navbar-link"><span class="icon" style="padding-right:1.75em"><img src="{{{uiRootPath}}}/img/octicons-24.svg#view-rocket"></span>Tooling</div>
+                    <div class="navbar-dropdown">
+                        <div class="navbar-item">Toolchain</div>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://asciidoc.org/">AsciiDoc<small>Language</small></a>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://asciidoctor.org/">Asciidoctor<small>Page Processing</small></a>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://antora.org/">Antora<small>Site Building</small></a>
+                        <hr class="navbar-divider">
+                        <div class="navbar-item">Text Editors / Viewers</div>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://code.visualstudio.com/">Visual Studio Code<small>Code Editor</small></a>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode">AsciiDoc support for<br>Visual Studio Code<small>Editor Extension</small></a>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://www.jetbrains.com/pycharm/">PyCharm<small>Code Editor</small></a>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://intellij-asciidoc-plugin.ahus1.de/">IntelliJ AsciiDoc Plugin<small>Editor Extension</small></a>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://docs.asciidoctor.org/browser-extension/">Asciidoctor<br>Browser Extension<small>Page Preview</small></a>
+
+                    </div>
+                </div>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <div class="navbar-link"><span class="icon" style="padding-right:1.75em"><img src="{{{uiRootPath}}}/img/octicons-24.svg#view-comment-discussion"></span>Get in Touch</div>
+                    <div class="navbar-dropdown is-right">
+                        <div class="navbar-item">Who We Are</div>
+                        <a class="navbar-item" target="_blank" rel="noopener" href="https://www.wur.nl/en/research-results/research-institutes/environmental-research/meet-our-teams/sustainable-soil-management.htm">Team Sustainable Soil Management</a>
+                        <a class="navbar-item" target="_blank" rel="noopener" href="https://www.wur.nl/en/research-results/research-institutes/environmental-research.htm">Wageningen Environmental Research</a>
+                        <a class="navbar-item" target="_blank" rel="noopener" href="https://www.wur.nl/en.htm">Wageningen University &amp; Research</a>
+                        <hr class="navbar-divider">
+                        <div class="navbar-item">Related Work</div>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://www.nutribudget.eu/"><span>NutriBudget</span><small>EU Project</small></a>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://www.nutri2cycle.eu/"><span>Nutri2Cycle</span><small>EU Project</small></a>
+                        <hr class="navbar-divider">
+                        <div class="navbar-item">Follow Us</div>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://www.linkedin.com/showcase/ssm-wenr/"><span><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn</span><small>@SSM-WEnR</small></a>
+                        <a class="navbar-item" target="_blank" rel="noopener external" href="https://ssm-wenr.github.io/"><span><i class="fa fa-github" aria-hidden="true"></i> Github</span><small>@SSM-WEnR</small></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

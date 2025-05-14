@@ -1,0 +1,117 @@
+footer.footer {
+  background-color: var(--footer-background);
+  color: var(--footer-font-color);
+  font-size: calc(14 / var(--rem-base) * 1rem);
+  line-height: var(--footer-line-height);
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--footer-link-font-color);
+}
+
+.footer img {
+  vertical-align: middle;
+}
+
+.footer p + p {
+  margin-top: 1em;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+  justify-content: center;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.footer-brand a {
+  color: var(--footer-link-font-color);
+}
+
+.footer-brand img.logo {
+  width: calc(96 / var(--rem-base) * 1rem);
+}
+
+.footer-brand figcaption {
+  color: var(--footer-link-font-color);
+  font-size: calc(36 / var(--rem-base) * 1rem);
+  line-height: 1;
+  position: relative;
+  top: 0.06em; /* compensate for built-in line height in font */
+  letter-spacing: -0.02em;
+}
+
+.footer-brand .logo + figcaption {
+  margin-left: 0;
+}
+
+.footer-legal,
+.footer-thanks {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.footer-legal .small {
+  margin-top: 1.5em;
+  font-size: smaller;
+}
+
+.footer-thanks img.logo {
+  width: calc(200 / var(--rem-base) * 1rem);
+  filter: invert(100%);
+}
+
+@media screen and (min-width: 1024px) {
+  footer.footer {
+    flex-direction: row;
+    position: relative;
+    z-index: var(--z-index-footer);
+  }
+
+  .footer-main {
+    width: var(--nav-width);
+    flex-shrink: 0;
+    flex-grow: 0;  /* Disable size change in flex box. */
+    border-right: 1px var(--footer-font-color) solid;
+  }
+
+  .footer-legal {
+    margin-top: 0;
+    padding: 0 1.5rem;
+    text-align: left;
+    width: 100%;
+  }
+
+  .footer-thanks {
+    display: inline;
+    position: relative;
+    width: calc(250 / var(--rem-base) * 1rem);
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
+  .footer-thanks img.logo {
+    position: absolute;
+    bottom: 0;
+    right: 2em;
+  }
+}

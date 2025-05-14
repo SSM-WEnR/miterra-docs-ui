@@ -1,0 +1,69 @@
+<script id="site-script" src="{{{uiRootPath}}}/js/site.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+{{!--
+<script id="site-script" src="{{{uiRootPath}}}/js/01-nav.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+<script id="site-script-02" src="{{{uiRootPath}}}/js/02-on-this-page.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+<script id="site-script-03" src="{{{uiRootPath}}}/js/03-fragment-jumper.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+<script id="site-script-04" src="{{{uiRootPath}}}/js/04-page-versions.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+<script id="site-script-05" src="{{{uiRootPath}}}/js/05-mobile-navbar.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+<script id="site-script-06" src="{{{uiRootPath}}}/js/06-copy-to-clipboard.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+<script id="site-script-07" src="{{{uiRootPath}}}/js/07-copy-page-spec.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+--}}
+<script async src="{{{uiRootPath}}}/js/tabs.js"></script>
+{{!-- <script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script> --}}
+
+{{!--
+<!-- Load MathJax.-->
+{{#with (resolvePage page.relativeSrcPath model=false)}}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]], ignoreClass: "nostem|nolatexmath" },
+  asciimath2jax: { delimiters: [["\\$", "\\$"]], ignoreClass: "nostem|noasciimath" },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+{{/with}}
+--}}
+
+{{!-- JQuery script --}}
+<script id="rendered-js">
+    // Clear search text
+    $("form").on("click", ".inputbox + .clear-button", function(e) {
+        e.preventDefault();
+        $(this).prev("input").val("");
+        $(".search-result-dropdown-menu").html("");
+        $(this).prev("input").focus();
+        return false;
+    });
+    $("form").on("focus blur keyup", ".inputbox:not([required])", function(e) {
+        e.preventDefault();
+        if ($(this).val().length) {
+            $(this).addClass("valid-text");
+        } else {
+            $(this).removeClass("valid-text");
+        }
+    });
+    $("form").on("click", ".inputbox:not([required]) + .clear-button", function(e) {
+        e.preventDefault();
+        $(this).prev("input").removeClass("valid-text");
+        return false;
+    });
+    // Set tag color
+    if (typeof tag_colors !== "object") { tag_colors = {} }
+    for (const [key, value] of Object.entries(tag_colors)) {
+        $(`span.tag:contains(${key})`).attr("data-tag-color", `${value}`);
+    }
+</script>
+
+{{#if env.SITE_SEARCH_PROVIDER}}
+    {{> search-scripts}}
+{{/if}}
+
